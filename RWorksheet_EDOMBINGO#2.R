@@ -139,9 +139,9 @@ forbesRanking
 #         25           25          Kobe Bryant  31
 
 #b.
-forbesRanking <- forbesRanking[-19, ]
-updatedForbesRanking <- rbind(forbesRanking[1:14, ], newRank15, forbesRanking[15:24, ])
-forbesRanking$powerRanking <- 1:25
+forbesRanking2 <- forbesRanking[-19, ]
+updatedForbesRanking <- rbind(forbesRanking2[1:14, ], newRank15, forbesRanking2[15:24, ])
+forbesRanking2$powerRanking <- 1:24
 rownames(updatedForbesRanking) <- NULL
 updatedForbesRanking
 
@@ -441,3 +441,4 @@ veggies
 length(veggies)
 # Output:
 #[1] 13
+
