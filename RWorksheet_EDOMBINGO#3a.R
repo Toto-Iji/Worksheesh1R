@@ -27,7 +27,7 @@ last5
 # [1] "v" "w" "x" "y" "z"
 
 b1524 <- letters[16:23]
-b1523
+b1524
 # Output:
 # [1] "p" "q" "r" "s" "t" "u" "v" "w"
 
