@@ -1,0 +1,202 @@
+```{r}
+#1.
+
+#a.
+householdData <- data.frame(Respondents = c(1:20), Sex = c(2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2), FathersOccupation = c(1, 3, 3, 3, 1, 2, 3, 1, 1, 1, 3, 2, 1, 3, 3, 1, 3, 1, 2, 1), PersonsatHome = c(5, 7, 3, 8, 5, 9, 6, 7, 8, 4, 7, 5, 4, 7, 8, 8, 3, 11, 7, 6), SiblingsatSchool = c(6, 4, 4, 1, 2, 1, 5, 3, 1, 2, 3, 2, 5, 5, 2, 1, 2, 5, 3, 2), TypesofHouses = c(1, 2, 3, 1, 1, 3, 3, 1, 2, 3, 2, 3, 2, 2, 3, 3, 3, 3, 3, 2))
+householdData
+```
+```{r}
+#b.
+str(householdData)
+# Output:
+# 'data.frame':	20 obs. of  6 variables:
+# $ Respondents      : int  1 2 3 4 5 6 7 8 9 10 ...
+# $ Sex              : num  2 2 1 2 2 2 2 2 2 2 ...
+# $ FathersOccupation: num  1 3 3 3 1 2 3 1 1 1 ...
+# $ PersonsatHome    : num  5 7 3 8 5 9 6 7 8 4 ...
+# $ SiblingsatSchool : num  6 4 4 1 2 1 5 3 1 2 ...
+# $ TypesofHouses    : num  1 2 3 1 1 3 3 1 2 3 ...
+```
+```{r}
+#c.
+# No, the mean is 2.95
+MeanhouseholdData <- mean(householdData[["SiblingsatSchool"]])
+MeanhouseholdData
+# Output:
+# [1] 2.95
+```
+```{r}
+#d.
+subset(householdData[3, ])
+# Output:
+#   Respondents Sex FathersOccupation PersonsatHome SiblingsatSchool TypesofHouses
+# 3           3   1                 3             3                4             3
+subset(householdData)
+# Output:
+#    Respondents Sex FathersOccupation PersonsatHome SiblingsatSchool TypesofHouses
+# 1            1   2                 1             5                6             1
+# 2            2   2                 3             7                4             2
+# 3            3   1                 3             3                4             3
+# 4            4   2                 3             8                1             1
+# 5            5   2                 1             5                2             1
+# 6            6   2                 2             9                1             3
+# 7            7   2                 3             6                5             3
+# 8            8   2                 1             7                3             1
+# 9            9   2                 1             8                1             2
+# 10          10   2                 1             4                2             3
+# 11          11   1                 3             7                3             2
+# 12          12   2                 2             5                2             3
+# 13          13   2                 1             4                5             2
+# 14          14   2                 3             7                5             2
+# 15          15   2                 3             8                2             3
+# 16          16   2                 1             8                1             3
+# 17          17   2                 3             3                2             3
+# 18          18   2                 1            11                5             3
+# 19          19   1                 2             7                3             3
+# 20          20   2                 1             6                2             2
+```
+```{r}
+#e.
+row3and5 <- subset(householdData[c(3, 5), ])
+row3and5
+# Output:
+#   Respondents Sex FathersOccupation PersonsatHome SiblingsatSchool TypesofHouses
+# 3           3   1                 3             3                4             3
+# 5           5   2                 1             5                2             1
+
+col2and4 <- subset(row3and5[, c(2, 4)])
+col2and4
+# Output:
+#   Sex PersonsatHome
+# 3   1             3
+# 5   2             5
+```
+```{r}
+#f.
+types_houses <- as.vector(householdData[, 6])
+types_houses
+# Output:
+# [1] 1 2 3 1 1 3 3 1 2 3 2 3 2 2 3 3 3 3 3 2
+```
+```{r}
+#g.
+mf <- subset(householdData, Sex == 1 & FathersOccupation == 1)
+mf
+# Output:
+# [1] Respondents       Sex               FathersOccupation PersonsatHome     SiblingsatSchool 
+# [6] TypesofHouses    
+# <0 rows> (or 0-length row.names)
+```
+```{r}
+#h.
+fs <- subset(householdData, Sex == 2 & SiblingsatSchool >= 5)
+fs
+# Output: 
+#    Respondents Sex FathersOccupation PersonsatHome SiblingsatSchool TypesofHouses
+# 1            1   2                 1             5                6             1
+# 7            7   2                 3             6                5             3
+# 13          13   2                 1             4                5             2
+# 14          14   2                 3             7                5             2
+# 18          18   2                 1            11                5             3
+```
+```{r}
+#2.
+df = data.frame(Ints=integer(), Doubles=double(), Characters=character(), Logicals=logical(), Factors=factor(), stringsAsFactors=FALSE)
+df
+# Output:
+# [1] Ints       Doubles    Characters Logicals   Factors   
+# <0 rows> (or 0-length row.names)
+print("Structure of the empty dataframe:")
+# Output:
+# [1] "Structure of the empty dataframe:"
+print(str(df))
+# Output:
+# 'data.frame':	0 obs. of  5 variables:
+#   $ Ints      : int 
+# $ Doubles   : num 
+# $ Characters: chr 
+# $ Logicals  : logi 
+# $ Factors   : Factor w/ 0 levels: 
+#   NULL
+```
+```{r}
+#a.
+# the dataframe is empty with no objects but has 5 variables when you get its structure.
+
+#3.
+
+#a.
+filecsv <- read.csv("HouseholdData.csv")
+filecsv
+# Output:
+# Respndents    Sex Fathers.Occupation Persons.at.Home Siblings.at.School Types.of.Houses
+# 1           1   Male                  1               5                  2            Wood
+# 2           2 Female                  2               7                  3        Congrete
+# 3           3 Female                  3               3                  0        Congrete
+# 4           4   Male                  3               8                  5            Wood
+# 5           5   Male                  1               6                  2   Semi-Congrete
+# 6           6 Female                  2               4                  3   Semi-Congrete
+# 7           7 Female                  2               4                  1            Wood
+# 8           8   Male                  3               2                  2   Semi-Congrete
+# 9           9 Female                  1              11                  6   Semi-Congrete
+# 10         10   Male                  3               6                  2        Congrete
+```
+```{r}
+#b.
+filecsv$Sex <- factor(filecsv$Sex, levels = c("Male", "Female"), labels = c(1, 2))
+filecsv$Sex <- as.integer(filecsv$Sex)
+filecsv
+# Output:
+#    Respndents Sex Fathers.Occupation Persons.at.Home Siblings.at.School Types.of.Houses
+# 1           1   1                  1               5                  2            Wood
+# 2           2   2                  2               7                  3        Congrete
+# 3           3   2                  3               3                  0        Congrete
+# 4           4   1                  3               8                  5            Wood
+# 5           5   1                  1               6                  2   Semi-Congrete
+# 6           6   2                  2               4                  3   Semi-Congrete
+# 7           7   2                  2               4                  1            Wood
+# 8           8   1                  3               2                  2   Semi-Congrete
+# 9           9   2                  1              11                  6   Semi-Congrete
+# 10         10   1                  3               6                  2        Congrete
+```
+```{r}
+#c.
+filecsv$Types.of.Houses <- factor(filecsv$Types.of.Houses, levels = c("Wood", "Congrete", "Semi-Congrete"), labels = c(1, 2, 3))
+filecsv$Types.of.Houses <- as.integer(filecsv$Types.of.Houses)
+filecsv
+#    Respndents Sex Fathers.Occupation Persons.at.Home Siblings.at.School Types.of.Houses
+# 1           1   1                  1               5                  2               1
+# 2           2   2                  2               7                  3               2
+# 3           3   2                  3               3                  0               2
+# 4           4   1                  3               8                  5               1
+# 5           5   1                  1               6                  2               3
+# 6           6   2                  2               4                  3               3
+# 7           7   2                  2               4                  1               1
+# 8           8   1                  3               2                  2               3
+# 9           9   2                  1              11                  6               3
+# 10         10   1                  3               6                  2               2
+```
+```{r}
+#d.
+# Fathers.Occupation was already factored and labelled. doing the same procedure would result to <NA>
+
+#e.
+fd <- filecsv[filecsv$Sex == 2 & filecsv$Fathers.Occupation == 2, ]
+fd
+# Output:
+#   Respndents Sex Fathers.Occupation Persons.at.Home Siblings.at.School Types.of.Houses
+# 2          2   2                  2               7                  3               2
+# 6          6   2                  2               4                  3               3
+# 7          7   2                  2               4                  1               1
+```
+```{r}
+#f.
+rg5 <- filecsv[filecsv$Siblings.at.School >= 5, ]
+rg5
+# Output:
+#  Respndents Sex Fathers.Occupation Persons.at.Home Siblings.at.School Types.of.Houses
+# 4          4   1                  3               8                  5               1
+# 9          9   2                  1              11                  6               3
+
+#4.
+```
