@@ -1,0 +1,150 @@
+---
+title: "RWorksheet_EDOMBINGO#4a"
+author: "Aeron Jesse Edombingo"
+date: "2023-11-03"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#1.
+
+shoeDF <- data.frame( shoeSize = c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5, 13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0),
+height = c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.5, 67.0, 71.0, 71.0, 77.0, 72.0, 59.0, 62.0, 72.0, 66.0, 64.0, 67.0, 73.0, 69.0, 72.0, 70.0, 69.0, 70.0)
+)
+shoeDF
+```
+
+```{r}
+#a.
+length(shoeDF)
+nrow(shoeDF)
+mode(shoeDF)
+class(shoeDF)
+```
+
+```{r}
+#b.
+gender <- c("F", "F","F", "F", "M", "F","F","F","M","F","M","F","M","M","M","M","F","F","M","F","F","M","M","F","M","M","M","M")
+gender
+
+complete_shoeDF <- cbind(shoeDF, gender)
+```
+
+```{r}
+#c.
+mean(shoeDF$shoeSize)
+mean(shoeDF$height)
+```
+
+#d. \# You can roughly distinguish the gender by their shoe size and height.
+
+```{r}
+#2.
+
+factor_months_vector <- factor(c("March","April","January","November","January","September","October","September","November","August","January","November","November","February","May","August","July","December","August","August","September","November","February","April"))
+```
+
+```{r}
+#3.
+
+summary(factor_months_vector)
+```
+
+```{r}
+#4.
+
+factor_data <- c("East", "West", "North")
+Frequency = c(1, 4, 3)
+new_order_data <- factor(factor_data,levels = c("East","West","North"))
+print(new_order_data)
+```
+
+```{r}
+#5.
+
+#a.
+importdf <- read.table(file = '/cloud/project/RWorksheet_EDOMBINGO#4a/import_march.csv', header = TRUE, sep=',')
+importdf
+
+#b.
+View(importdf)
+```
+```{r}
+#6.
+
+numInput <- as.numeric(readline("Enter a number (1 to 50): "))
+if (numInput >= 1 && numInput <= 50) {
+  if (numInput == 20) {
+    cat("TRUE\n")
+  } else {
+    cat(numInput, "\n")
+  }
+} else {
+  cat("The number selected is beyond the range of 1 to 50\n")
+}
+```
+```{r}
+#7.
+
+snackPrice <- as.integer(readline("Enter the price of the snack (must be divisible by 50): "))
+if (snackPrice %% 50 == 0) {
+if (snackPrice <= 1000) {
+cat("Minimum bill required: 1000 peso bill\n")
+} else if (snackPrice <= 500) {
+cat("Minimum bill required: 500 peso bill\n")
+} else if (snackPrice <= 200) {
+cat("Minimum bill required: 200 peso bill\n")
+} else if (snackPrice <= 100) {
+cat("Minimum bill required: 100 peso bill\n")
+} else {
+cat("Minimum bill required: 50 peso bill\n")
+}
+} else {
+cat("Invalid input. Price must be divisible by 50.\n")
+}
+```
+```{r}
+#8.
+
+#a.
+mathScoreDF <- data.frame(Name = c("Annie", "Thea", "Steve", "Hanna"), Grade1 = c(85, 65, 75, 95), Grade2 = c(65, 75, 55, 75), Grade3 = c(85, 90, 80, 100), Grade4 = c(100, 90, 85, 90))
+mathScoreDF
+```
+```{r}
+#b.
+
+mathScoreDF <- data.frame(Name = c("Annie", "Thea", "Steve", "Hanna"), Grade1 = c(85, 65, 75, 95), Grade2 = c(65, 75, 55, 75), Grade3 = c(85, 90, 80, 100), Grade4 = c(100, 90, 85, 90))
+average_scores <- (mathScoreDF$Grade1 + mathScoreDF$Grade2 + mathScoreDF$Grade3 + mathScoreDF$Grade4) / 4
+high_average_students <- mathScoreDF[average_scores >= 90, ]
+displayResult <- paste(high_average_students$Name, "'s average grades this semester is: ", average_scores[average_scores >= 90], ".")
+cat(displayResult, sep = "\n")
+
+```
+```{r}
+#c.
+mathScoreDF <- data.frame(Name = c("Annie", "Thea", "Steve", "Hanna"), Grade1 = c(85, 65, 75, 95), Grade2 = c(65, 75, 55, 75), Grade3 = c(85, 90, 80, 100), Grade4 = c(100, 90, 85, 90))
+
+aveG1 <- sum(mathScoreDF$Grade1)/4
+aveG2 <- sum(mathScoreDF$Grade2)/4
+aveG3 <- sum(mathScoreDF$Grade3)/4
+aveG4 <- sum(mathScoreDF$Grade4)/4
+
+if(aveG1 <= 70){
+  print("The 1st test was the most difficult")
+} else if(aveG2 <= 70) {
+  print("The 2nd test was the most difficult")
+} else if(aveG3 <= 70) {
+  print("The 3rd test was the most difficult")
+} else if(aveG4 <= 70) {
+  print("The 4th test was the most difficult")
+} else {
+  print("")
+}
+```
+```{r}
+
+```
