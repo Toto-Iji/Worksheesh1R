@@ -1,0 +1,48 @@
+---
+title: "Worksheet#4b"
+author: "Aeron Jesse Edombingo"
+date: "2023-11-21"
+output: pdf_document
+---
+
+```{r}
+vector0 <- abs(c(0, 0, 0, 0, 0))
+forloop <- for (x in vector0) {
+print(rep(x, 5))
+}
+```
+```{r}
+vectorA <- c(1, 2, 3, 4, 5)
+matrixA <- matrix(0, nrow = 5, ncol = 5)
+for (i in 1:5) {
+  for (j in 1:5) {
+    matrixA[i, j] <- abs(vectorA[i] - vectorA[j])
+    
+  }
+}
+
+matrixA
+```
+```{r}
+for (x in 1:5) {
+    for (y in 1:x) {
+        cat("*")
+    }
+cat("\n")
+}
+```
+```{r}
+shoesize <- read.table(file = '/cloud/project/RWorksheet_EDOMBINGO#4b/shoesize.csv', header = TRUE, sep=',')
+
+head(shoesize)
+```
+```{r}
+mSubset <- subset(shoesize, Gender == "M")
+fSubset <- subset(shoesize, Gender == "F")
+
+length(mSubset)
+length(fSubset)
+```
+```{r}
+
+```
