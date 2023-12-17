@@ -42,7 +42,73 @@ fSubset <- subset(shoesize, Gender == "F")
 
 length(mSubset)
 length(fSubset)
+
+nrow(mSubset)
+nrow(fSubset)
 ```
 ```{r}
+GraphMF<- table(shoesize$Gender)
+barplot(GraphMF,
+        main = "Number of Males and Females",
+        xlab = "Gender",
+        ylab = "Count",
+        col = c("red", "blue"),
+        legend.text = c("Male", "Female"),
+        beside = TRUE
+)
 
+legend("topright", legend = c("Male", "Female"), fill = c("red", "blue"))
+```
+```{r}
+expenses <- c(60, 10, 5, 25)
+labels <- c("Food", "Electricity", "Savings", "Miscellaneous")
+
+pie(expenses, labels = labels, col = c("green","blue","yellow","red"), 
+    main = "Monthly Expenses of Dela Cruz Family")
+```
+```{r}
+data(iris)
+str(iris)
+```
+```{r}
+mean_iris <- c(mean(iris$Sepal.Length), 
+               mean(iris$Sepal.Width),
+               mean(iris$Petal.Length), 
+               mean(iris$Petal.Width))
+
+```
+```{r}
+species <- table(iris$Species)
+pie(species, labels = names(species), col = c("blue","orange","green"), main = "Species Distribution in Iris Data")
+```
+```{r}
+setosa <- iris[iris$Species=="setosa",]
+versicolor <- iris[iris$Species=="versicolor",]  
+virginica <- iris[iris$Species=="virginica",]
+
+tail(setosa, n=6)
+tail(versicolor, n=6)
+tail(virginica, n=6)
+```
+```{r}
+data(iris)
+
+iris$Species <- as.factor(iris$Species)
+
+plot(iris$Sepal.Length, iris$Sepal.Width,
+     pch = as.integer(iris$Species),
+     col = iris$Species,
+     main = "Iris Dataset",
+     sub = "Sepal width and length",
+     xlab = "Sepal Length",
+     ylab = "Sepal Width")
+
+#The similarities between the sepal width and length ranges from 5.5 to 7.0. 
+```
+```{r}
+library(readxl)
+
+file_path <- '/cloud/project/RWorksheet_EDOMBINGO#4b/alexa_file.xlsx'
+alexa_file <- read_excel(file_path)
+head(alexa_file)
 ```
